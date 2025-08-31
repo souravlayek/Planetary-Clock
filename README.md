@@ -1,5 +1,7 @@
 # Cool Clock
 
+> Check it out at https://planetaryclock.netlify.app/
+
 A simple, animated analog clock with:
 
 - Dynamic shadows that change through the day
