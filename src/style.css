@@ -1,0 +1,194 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  /* color: rgba(255, 255, 255, 0.87); */
+  background-color: #333537;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+  --clock-size: 250px;
+}
+
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.clockOutside {
+  width: var(--clock-size);
+  height:  var(--clock-size);
+  border-radius: 50%;
+  background-color: #fd4444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.55), -5px -5px 10px rgba(0,0,0,0.45);
+
+}
+
+.clockInside {
+  min-width:  var(--clock-size);
+  min-height:  var(--clock-size);
+  max-width:  var(--clock-size);
+  max-height:  var(--clock-size);
+  padding: 10px;
+  border-radius: 50%;
+  background: conic-gradient(
+    transparent 0deg 30deg,  /* the 1/12th slice is transparent */
+    #333537 30deg 360deg   /* the rest is filled with color */
+  );
+  position: absolute;
+  transform: rotate(-15deg);
+  z-index: 1;
+}
+
+/* HANDS (shared rules) */
+.hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 50% 100%;   /* bottom center = pivot */
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.minuteHand {
+  width: 2px;
+  height: calc(var(--clock-size) / 2 - 40px);
+  background: #fff;
+  z-index: 3;
+}
+
+.secondHand {
+  width: 1px;
+  height: calc(var(--clock-size) / 2 + 5px);
+  background: #ff0e0e;
+  z-index: 4;
+}
+
+/* Small tail so hands extend below center */
+.hand::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; margin: auto;
+  bottom: -14px;              /* extends below the pivot */
+  width: 100%;
+  height: 14px;
+  background: currentColor;
+  border-radius: 999px;
+}
+
+/* Center cap to cover the joint */
+.center-cap {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #111;
+  border: 1px solid #fff;
+  z-index: 5; /* remains above hands and overlay */
+}
+
+/* Directional light overlay across the face */
+.lightOverlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2; /* between face (1) and hands (3/4/5) */
+  /* Angle driven by --light-angle set in JS */
+  background: linear-gradient(var(--light-angle, 135deg),
+    rgba(255,255,255,0.35) 0%,
+    rgba(255,255,255,0.15) 35%,
+    rgba(0,0,0,0.20) 85%,
+    rgba(0,0,0,0.30) 100%
+  );
+  mix-blend-mode: soft-light;
+  transition: background 0.4s linear;
+}
+
+.legend {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.sound {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.soundOn {
+  display: block;
+  cursor: pointer;
+}
+.soundOff {
+  display: none;
+  cursor: pointer;
+}
+
+.footer {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: small;
+}
+
+.planetaryDays {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.planetaryDays h4 {
+  font-size: smaller;
+}
+.planetaryDays h4 span {
+  font-size: small;
+  text-decoration: underline;
+}
+  .planets{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: small;
+}
+
+.planet p {
+  text-align: center;
+  font-size: xx-small;
+  letter-spacing: 1px;
+}
+.planet img {
+  width: 60px;
+  height: 40px;
+  object-fit: contain;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

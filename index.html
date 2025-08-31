@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="./src/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+  <title>My Clock</title>
+</head>
+
+<body>
+  <div class="sound">
+    <div class="soundOn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fd4444"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-volume">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M15 8a5 5 0 0 1 0 8" />
+        <path d="M17.7 5a9 9 0 0 1 0 14" />
+        <path
+          d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
+      </svg>
+    </div>
+    <div class="soundOff">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fd4444"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-volume-3">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path
+          d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
+        <path d="M16 10l4 4m0 -4l-4 4" />
+      </svg>
+    </div>
+  </div>
+  <div id="app">
+    <div class="clockOutside">
+      <div class="clockInside">
+      </div>
+      <div class="lightOverlay"></div>
+      <div class="minuteHand hand" style="--angle: 120deg;"></div>
+      <div class="secondHand hand" style="--angle: 200deg;"></div>
+      <div class="center-cap"></div>
+      <div class="legend">12</div>
+      <div class="legend">01</div>
+      <div class="legend">02</div>
+      <div class="legend">03</div>
+      <div class="legend">04</div>
+      <div class="legend">05</div>
+      <div class="legend">06</div>
+      <div class="legend">07</div>
+      <div class="legend">08</div>
+      <div class="legend">09</div>
+      <div class="legend">10</div>
+      <div class="legend">11</div>
+    </div>
+    <div class="planetaryDays">
+      <h4 style="text-align: center;">Date Elapsed from <span>
+        <span class="calendar d">04</span>/
+        <span class="calendar m">01</span>/
+        <span class="calendar y">2001</span>
+      </span></h4>
+<div class="planets">
+  <div class="Mercury planet">
+  <p></p>
+  <img src="/planets/mercury.png" alt="Mercury">
+</div>
+<div class="Venus planet">
+  <p></p>
+  <img src="/planets/venus.png" alt="Venus">
+</div>
+<div class="Earth planet">
+  <p></p>
+  <img src="/planets/earth.png" alt="Earth">
+</div>
+<div class="Mars planet">
+  <p></p>
+  <img src="/planets/mars.png" alt="Mars">
+</div>
+<div class="Jupiter planet">
+  <p></p>
+  <img src="/planets/jupiter.png" alt="Jupiter">
+</div>
+<div class="Saturn planet">
+  <p></p>
+  <img src="/planets/saturn.png" alt="Saturn">
+</div>
+<div class="Uranus planet">
+  <p></p>
+  <img src="/planets/uranus.png" alt="Uranus">
+</div>
+<div class="Neptune planet">
+  <p></p>
+  <img src="/planets/neptune.png" alt="Neptune">
+</div>
+<div class="Pluto planet">
+  <p></p>
+  <img src="/planets/pluto.png" alt="Pluto">
+</div>
+</div>
+    </div>
+  </div>
+  <audio id="tick2" style="visibility: hidden;" src="./src/tick2.mp3"></audio>
+  <footer class="footer">
+    <p>Created by <a href="https://souravlayek.com">Sourav Layek</a></p>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
